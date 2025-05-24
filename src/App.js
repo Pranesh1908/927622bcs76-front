@@ -10,15 +10,13 @@ function App() {
   const fetchStockData = async () => {
     setLoading(true);
     setError('');
-    // Simulated API call to fetch stock prices
     try {
-      // Example API URL: replace with actual endpoint if available
       const response = await fetch(`https://your-api-endpoint/stocks/${stockSymbol}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
-      if (data.prices.length === 0) {
+      if (!data.prices || data.prices.length === 0) {
         setError('No data found for this symbol.');
         setStockPrices([]);
         setAveragePrice(0);
@@ -33,7 +31,6 @@ function App() {
     setLoading(false);
   };
 
-  // Functions to call various microservice APIs
   const callPrimeNumbersAPI = async () => {
     const response = await fetch('https://20.244.56.144/evaluation-service/primes');
     const data = await response.json();
@@ -66,12 +63,14 @@ function App() {
 
   return (
     <div style={{
-      maxWidth: '800px', margin: '5a0px auto', padding: '20px',
-      border: '1px solid #ccc', borderRadius: '8px', fontFamily: 'Arial'
+      maxWidth: '800px',
+      margin: '50px auto',
+      padding: '20px',
+      border: '1px solid #ccc',
+      borderRadius: '8px',
+      fontFamily: 'Arial'
     }}>
-      <h1>Stock Price Aggregation & HTTP Calculator
-      
-      </h1>
+      <h1>Stock Price Aggregation & HTTP Calculator</h1>
 
       {/* Stock Price Section */}
       <div style={{ marginBottom: '30px' }}>
