@@ -102,7 +102,7 @@ function App() {
 
       {/* Microservices API Buttons */}
       <div>
-        <h2>Test Server APIs</h2>
+        <h2>HTTP Calculator</h2>
         <button onClick={callPrimeNumbersAPI} style={{ marginRight: '10px', padding: '8px' }}>Prime Numbers API</button>
         <button onClick={callFibonacciAPI} style={{ marginRight: '10px', padding: '8px' }}>Fibonacci Numbers API</button>
         <button onClick={callEvenNumbersAPI} style={{ marginRight: '10px', padding: '8px' }}>Even Numbers API</button>
